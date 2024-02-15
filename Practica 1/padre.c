@@ -1,76 +1,104 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <sys/types.h>
 #include <unistd.h>
-#include <signal.h>
 #include <sys/wait.h>
-#include <fcntl.h>
+#include <string.h>
+#include <signal.h>
 
-// Contador para el número total de llamadas al sistema
-int total_syscalls = 0;
+#define MAX_BUFFER_SIZE 1024
+int total_calls = 0;
+int read_calls = 0;
+int write_calls = 0;
 
-// Manejador de señal para SIGINT (Ctrl + C)
-void sigint_handler(int sig) {
-    printf("\nNúmero total de llamadas al sistema por los procesos hijo durante la ejecución: %d\n", total_syscalls);
+void sigint_handler(int signum) {
+    // Imprimir el número total de llamadas al sistema
+    printf("Número total de llamadas al sistema: %d\n", total_calls);
+
+    // Imprimir el número de llamadas al sistema por tipo
+    printf("Número de llamadas al sistema por tipo:\n");
+    printf("Read: %d\n", read_calls);
+    printf("Write: %d\n", write_calls);
+
+    // Terminar la ejecución del programa
     exit(EXIT_SUCCESS);
 }
-
 int main() {
-    // Establecer el manejador de señales para SIGINT
+    int contador1 = 0;
+    int contador2 = 0;
+    pid_t pid = fork();
+    pid_t pid2 = 0;
+    
+    FILE *fp;
+    char buffer[MAX_BUFFER_SIZE];
+
     signal(SIGINT, sigint_handler);
-
-    // Vaciar o crear el archivo de registro "syscalls.log"
-    int log_fd = open("syscalls.log", O_WRONLY | O_CREAT | O_TRUNC, 0644);
-    if (log_fd == -1) {
-        perror("Error al abrir el archivo de log");
+    if (pid == -1) {
+        perror("Error al hacer fork");
         exit(EXIT_FAILURE);
-    }
-
-    // Crear dos procesos hijos
-    for (int i = 0; i < 2; i++) {
-        pid_t pid = fork();
-      
-        if (pid == -1) {
+    } else if (pid > 0) {
+        // Estamos en el proceso padre
+         printf("Proceso hpadre creado con PID: %d\n", getpid());
+        contador1 = pid; // Guardamos el PID del primer hijo
+        
+        pid_t pid2 = fork(); // Creamos el segundo proceso hijo
+        if (pid2 == -1) {
             perror("Error al hacer fork");
             exit(EXIT_FAILURE);
-        } else if (pid > 0) {
-        
-            // Redirigir stdout y stderr al archivo de registro "syscalls.log"
-            //ver que hijo esta ejecutando
-            if(i==0){
-                printf("Hijo 1\n");
-                //imprmir su pid
-                printf("PID: %d\n", getpid());
-                char *args[] = {"//home/oem/Documentos/SO2_202000424/Practica 1/hijo.bin", NULL};
-            execv("/home/oem/Documentos/SO2_202000424/Practica 1/hijo.bin", args);
-            }
-            else if(i==1){
-                printf("Hijo 2\n");
-                //imprmir su pid
-                printf("PID: %d\n", getpid());
-                char *args[] = {"/home/oem/Documentos/SO2_202000424/Practica 1/hijo2.bin", NULL};
-                execv("/home/oem/Documentos/SO2_202000424/Practica 1/hijo2.bin", args);
-        
-            }
-
-            // Ejecutar el programa hijo
-           
+        } else if (pid2 > 0) {
+            // Estamos en el proceso padre
+            contador2 = pid2; // Guardamos el PID del segundo hijo
+        } else {
+            // Estamos en el proceso hijo 2
+            printf("Proceso hijo 2 creado con PID: %d\n", getpid());
+            char *args[] = {"/home/oem/Desktop/SO2_202000424/Practica 1/hijo.bin", NULL};
+            execv("/home/oem/Desktop/SO2_202000424/Practica 1/hijo.bin", args);
             perror("Error en execv");
             exit(EXIT_FAILURE);
         }
+    } else {
+        // Estamos en el proceso hijo 1
+        printf("Proceso hijo 1 creado con PID: %d\n", getpid());
+        char *args[] = {"/home/oem/Desktop/SO2_202000424/Practica 1/hijo.bin", NULL};
+        execv("/home/oem/Desktop/SO2_202000424/Practica 1/hijo.bin", args);
+        perror("Error en execv");
+        exit(EXIT_FAILURE);
     }
 
-    // Cerrar el archivo de log en el proceso padre
-    close(log_fd);
-
-    // Esperar a que los hijos terminen
+    // Código que se ejecuta solo en el proceso padre
+    printf("PID del primer hijo: %d\n", contador1);
+    printf("PID del segundo hijo: %d\n", contador2);
+    
+    // Esperar a que ambos hijos terminen
+    char command[100];
+    snprintf(command, sizeof(command), "sudo stap trace.stp %d %d > calls.log &", contador1, contador2);
+    system(command);
     int status;
-    while (wait(&status) > 0) {
-        if (WIFEXITED(status)) {
-            // Incrementar el contador de llamadas al sistema
+    waitpid(pid, &status, 0);
+    waitpid(pid2, &status, 0);
+    fp = fopen("calls.log", "r");
+    if (fp == NULL) {
+        perror("Error al abrir el archivo calls.log");
+        exit(EXIT_FAILURE);
+    }
+
+    // Leer el archivo calls.log línea por línea y obtener los recuentos de las llamadas
+    while (fgets(buffer, sizeof(buffer), fp) != NULL) {
+        if (strstr(buffer, "READ_COUNTER=") != NULL) {
+            read_calls++;
+            sscanf(buffer, "READ_COUNTER=%d", &read_calls);
+        } else if (strstr(buffer, "WRITE_COUNTER=") != NULL) {
+            write_calls++;
+            sscanf(buffer, "WRITE_COUNTER=%d", &write_calls);
+        } else {
+            // Imprimir las llamadas al sistema en la consola
             
         }
     }
 
+    // Cerrar el archivo
+    fclose(fp);
+
+   
+    
     return 0;
 }

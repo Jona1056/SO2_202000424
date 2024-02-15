@@ -1,0 +1,23 @@
+#!/ust/bin/stap
+
+global read_counter = 0
+global write_counter = 0
+
+probe syscall.read {
+    if(pid() == $1 || pid() == $2){
+         read_counter++
+        printf("%s(%d) %s\n",execname(), pid(), name)
+    }
+}
+
+probe syscall.write {
+    if(pid() == $1 || pid() == $2){
+        write_counter++
+        printf("%s(%d) %s\n",execname(), pid(), name)
+    }
+}
+
+probe end {
+    printf("READ_COUNTER=%d\n", read_counter) > "calls.log"
+    printf("WRITE_COUNTER=%d\n", write_counter) >> "calls.log"
+}

@@ -1,0 +1,15 @@
+hijo.bin(16150) write
+hijo.bin(16151) read
+hijo.bin(16151) read
+hijo.bin(16150) read
+hijo.bin(16150) read
+hijo.bin(16150) write
+hijo.bin(16151) read
+hijo.bin(16150) read
+hijo.bin(16151) read
+hijo.bin(16150) read
+hijo.bin(16151) write
+hijo.bin(16150) write
+hijo.bin(16151) read
+READ_COUNTER=9
+WRITE_COUNTER=4
