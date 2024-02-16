@@ -1,15 +1,248 @@
-hijo.bin(16150) write
-hijo.bin(16151) read
-hijo.bin(16151) read
-hijo.bin(16150) read
-hijo.bin(16150) read
-hijo.bin(16150) write
-hijo.bin(16151) read
-hijo.bin(16150) read
-hijo.bin(16151) read
-hijo.bin(16150) read
-hijo.bin(16151) write
-hijo.bin(16150) write
-hijo.bin(16151) read
-READ_COUNTER=9
-WRITE_COUNTER=4
+Proceso 21510: write (2024-02-15 18:10:58
+)
+Proceso 21509: write (2024-02-15 18:11:03
+)
+Proceso 21509: write (2024-02-15 18:11:04
+)
+Proceso 21510: write (2024-02-15 18:11:05
+)
+Proceso 21509: read (2024-02-15 18:11:05
+)
+Proceso 21510: write (2024-02-15 18:11:07
+)
+Proceso 21509: write (2024-02-15 18:11:07
+)
+Proceso 21510: read (2024-02-15 18:11:08
+)
+Proceso 21509: read (2024-02-15 18:11:09
+)
+Proceso 21509: read (2024-02-15 18:11:11
+)
+Proceso 21510: read (2024-02-15 18:11:14
+)
+Proceso 21509: write (2024-02-15 18:11:14
+)
+Proceso 21510: write (2024-02-15 18:11:17
+)
+Proceso 21509: write (2024-02-15 18:11:18
+)
+Proceso 21510: read (2024-02-15 18:11:19
+)
+Proceso 21509: write (2024-02-15 18:11:19
+)
+Proceso 21510: write (2024-02-15 18:11:21
+)
+Proceso 21509: read (2024-02-15 18:11:22
+)
+Proceso 21510: write (2024-02-15 18:11:23
+)
+Proceso 21509: write (2024-02-15 18:11:24
+)
+Proceso 21510: write (2024-02-15 18:11:25
+)
+Proceso 21509: write (2024-02-15 18:11:25
+)
+Proceso 21509: write (2024-02-15 18:11:28
+)
+Proceso 21509: read (2024-02-15 18:11:30
+)
+Proceso 21510: write (2024-02-15 18:11:33
+)
+Proceso 21509: write (2024-02-15 18:11:36
+)
+Proceso 21510: read (2024-02-15 18:11:37
+)
+Proceso 21509: write (2024-02-15 18:11:38
+)
+Proceso 21510: write (2024-02-15 18:11:39
+)
+Proceso 21509: write (2024-02-15 18:11:41
+)
+Proceso 21509: write (2024-02-15 18:11:42
+)
+Proceso 21509: write (2024-02-15 18:11:45
+)
+Proceso 21510: write (2024-02-15 18:11:47
+)
+Proceso 21510: read (2024-02-15 18:11:49
+)
+Proceso 21509: read (2024-02-15 18:11:49
+)
+Proceso 21510: write (2024-02-15 18:11:52
+)
+Proceso 21510: write (2024-02-15 18:11:54
+)
+Proceso 21509: write (2024-02-15 18:11:55
+)
+Proceso 21510: write (2024-02-15 18:11:56
+)
+Proceso 21510: read (2024-02-15 18:11:57
+)
+Proceso 21509: write (2024-02-15 18:11:57
+)
+Proceso 21510: read (2024-02-15 18:11:58
+)
+Proceso 21509: read (2024-02-15 18:11:59
+)
+Proceso 21510: write (2024-02-15 18:11:59
+)
+Proceso 21509: write (2024-02-15 18:12:01
+)
+Proceso 21510: read (2024-02-15 18:12:02
+)
+Proceso 21509: read (2024-02-15 18:12:03
+)
+Proceso 21510: write (2024-02-15 18:12:05
+)
+Proceso 21510: read (2024-02-15 18:12:06
+)
+Proceso 21509: read (2024-02-15 18:12:06
+)
+Proceso 21510: read (2024-02-15 18:12:07
+)
+Proceso 21510: write (2024-02-15 18:12:08
+)
+Proceso 21510: read (2024-02-15 18:12:10
+)
+Proceso 21509: write (2024-02-15 18:12:11
+)
+Proceso 21510: write (2024-02-15 18:12:12
+)
+Proceso 21509: write (2024-02-15 18:12:13
+)
+Proceso 21510: write (2024-02-15 18:12:14
+)
+Proceso 21510: write (2024-02-15 18:12:15
+)
+Proceso 21509: read (2024-02-15 18:12:16
+)
+Proceso 21510: write (2024-02-15 18:12:16
+)
+Proceso 21509: write (2024-02-15 18:12:19
+)
+Proceso 21510: read (2024-02-15 18:12:19
+)
+Proceso 21509: read (2024-02-15 18:12:21
+)
+Proceso 21510: read (2024-02-15 18:12:23
+)
+Proceso 21509: read (2024-02-15 18:12:24
+)
+Proceso 21509: write (2024-02-15 18:12:26
+)
+Proceso 21510: read (2024-02-15 18:12:26
+)
+Proceso 21509: read (2024-02-15 18:12:27
+)
+Proceso 21509: write (2024-02-15 18:12:28
+)
+Proceso 21510: write (2024-02-15 18:12:29
+)
+Proceso 21510: write (2024-02-15 18:12:30
+)
+Proceso 21509: write (2024-02-15 18:12:33
+)
+Proceso 21510: read (2024-02-15 18:12:33
+)
+Proceso 21509: read (2024-02-15 18:12:36
+)
+Proceso 21510: write (2024-02-15 18:12:37
+)
+Proceso 21509: write (2024-02-15 18:12:38
+)
+Proceso 21509: write (2024-02-15 18:12:43
+)
+Proceso 21510: write (2024-02-15 18:12:43
+)
+Proceso 21509: read (2024-02-15 18:12:45
+)
+Proceso 21509: read (2024-02-15 18:12:47
+)
+Proceso 21510: write (2024-02-15 18:12:48
+)
+Proceso 21509: write (2024-02-15 18:12:49
+)
+Proceso 21510: write (2024-02-15 18:12:51
+)
+Proceso 21509: read (2024-02-15 18:12:52
+)
+Proceso 21509: read (2024-02-15 18:12:55
+)
+Proceso 21510: write (2024-02-15 18:12:58
+)
+Proceso 21509: read (2024-02-15 18:12:59
+)
+Proceso 21509: read (2024-02-15 18:13:01
+)
+Proceso 21510: read (2024-02-15 18:13:01
+)
+Proceso 21510: read (2024-02-15 18:13:03
+)
+Proceso 21509: read (2024-02-15 18:13:04
+)
+Proceso 21509: read (2024-02-15 18:13:07
+)
+Proceso 21509: read (2024-02-15 18:13:10
+)
+Proceso 21509: write (2024-02-15 18:13:11
+)
+Proceso 21509: write (2024-02-15 18:13:13
+)
+Proceso 21510: read (2024-02-15 18:13:17
+)
+Proceso 21509: read (2024-02-15 18:13:22
+)
+Proceso 21510: read (2024-02-15 18:13:22
+)
+Proceso 21509: read (2024-02-15 18:13:23
+)
+Proceso 21510: read (2024-02-15 18:13:25
+)
+Proceso 21509: write (2024-02-15 18:13:26
+)
+Proceso 21510: write (2024-02-15 18:13:28
+)
+Proceso 21509: write (2024-02-15 18:13:29
+)
+Proceso 21509: write (2024-02-15 18:13:32
+)
+Proceso 21510: read (2024-02-15 18:13:33
+)
+Proceso 21510: write (2024-02-15 18:13:34
+)
+Proceso 21509: write (2024-02-15 18:13:36
+)
+Proceso 21509: write (2024-02-15 18:13:37
+)
+Proceso 21510: write (2024-02-15 18:13:39
+)
+Proceso 21509: read (2024-02-15 18:13:40
+)
+Proceso 21510: read (2024-02-15 18:13:41
+)
+Proceso 21510: write (2024-02-15 18:13:43
+)
+Proceso 21509: write (2024-02-15 18:13:44
+)
+Proceso 21510: write (2024-02-15 18:13:45
+)
+Proceso 21509: write (2024-02-15 18:13:47
+)
+Proceso 21509: write (2024-02-15 18:13:49
+)
+Proceso 21509: write (2024-02-15 18:13:52
+)
+Proceso 21509: write (2024-02-15 18:13:53
+)
+Proceso 21510: read (2024-02-15 18:13:55
+)
+Proceso 21509: write (2024-02-15 18:13:56
+)
+Proceso 21509: read (2024-02-15 18:13:58
+)
+Proceso 21510: write (2024-02-15 18:13:58
+)
+Proceso 21510: read (2024-02-15 18:13:59
+)
+READ_COUNTER=51
+WRITE_COUNTER=72

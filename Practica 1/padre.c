@@ -6,12 +6,48 @@
 #include <signal.h>
 
 #define MAX_BUFFER_SIZE 1024
+#define SYSLOG_FILE "syscalls.log"
 int total_calls = 0;
 int read_calls = 0;
 int write_calls = 0;
 
 void sigint_handler(int signum) {
+    char buffer[MAX_BUFFER_SIZE];
+    FILE *fp_calls, *fp_syscalls;
+    fp_syscalls = fopen(SYSLOG_FILE, "w");
+    if (fp_syscalls == NULL) {
+        perror("Error al abrir o vaciar el archivo de syscalls");
+        exit(EXIT_FAILURE);
+    }
+    fclose(fp_syscalls);
+    fp_calls = fopen("calls.log", "r");
+    if (fp_calls == NULL) {
+        perror("Error al abrir el archivo calls.log");
+        exit(EXIT_FAILURE);
+    }
+    fp_syscalls = fopen(SYSLOG_FILE, "a");
+    if (fp_syscalls == NULL) {
+        perror("Error al abrir el archivo de syscalls para escritura");
+        fclose(fp_calls);
+        exit(EXIT_FAILURE);
+    }
+
+    // Leer el archivo calls.log línea por línea y obtener los recuentos de las llamadas
+    while (fgets(buffer, sizeof(buffer), fp_calls) != NULL) {
+        if (strstr(buffer, "READ_COUNTER=") != NULL) {
+            read_calls++;
+            sscanf(buffer, "READ_COUNTER=%d", &read_calls);
+        } else if (strstr(buffer, "WRITE_COUNTER=") != NULL) {
+            write_calls++;
+            sscanf(buffer, "WRITE_COUNTER=%d", &write_calls);
+        } else {
+            fputs(buffer, fp_syscalls);
+            // Imprimir las llamadas al sistema en la consola
+            
+        }
+    }
     // Imprimir el número total de llamadas al sistema
+    total_calls = read_calls + write_calls;
     printf("Número total de llamadas al sistema: %d\n", total_calls);
 
     // Imprimir el número de llamadas al sistema por tipo
@@ -37,7 +73,7 @@ int main() {
         exit(EXIT_FAILURE);
     } else if (pid > 0) {
         // Estamos en el proceso padre
-         printf("Proceso hpadre creado con PID: %d\n", getpid());
+        //printf("Proceso hpadre creado con PID: %d\n", getpid());
         contador1 = pid; // Guardamos el PID del primer hijo
         
         pid_t pid2 = fork(); // Creamos el segundo proceso hijo
@@ -49,7 +85,7 @@ int main() {
             contador2 = pid2; // Guardamos el PID del segundo hijo
         } else {
             // Estamos en el proceso hijo 2
-            printf("Proceso hijo 2 creado con PID: %d\n", getpid());
+            //printf("Proceso hijo 2 creado con PID: %d\n", getpid());
             char *args[] = {"/home/oem/Desktop/SO2_202000424/Practica 1/hijo.bin", NULL};
             execv("/home/oem/Desktop/SO2_202000424/Practica 1/hijo.bin", args);
             perror("Error en execv");
@@ -57,7 +93,7 @@ int main() {
         }
     } else {
         // Estamos en el proceso hijo 1
-        printf("Proceso hijo 1 creado con PID: %d\n", getpid());
+        //printf("Proceso hijo 1 creado con PID: %d\n", getpid());
         char *args[] = {"/home/oem/Desktop/SO2_202000424/Practica 1/hijo.bin", NULL};
         execv("/home/oem/Desktop/SO2_202000424/Practica 1/hijo.bin", args);
         perror("Error en execv");
@@ -65,8 +101,8 @@ int main() {
     }
 
     // Código que se ejecuta solo en el proceso padre
-    printf("PID del primer hijo: %d\n", contador1);
-    printf("PID del segundo hijo: %d\n", contador2);
+    //printf("PID del primer hijo: %d\n", contador1);
+    //printf("PID del segundo hijo: %d\n", contador2);
     
     // Esperar a que ambos hijos terminen
     char command[100];
@@ -75,25 +111,7 @@ int main() {
     int status;
     waitpid(pid, &status, 0);
     waitpid(pid2, &status, 0);
-    fp = fopen("calls.log", "r");
-    if (fp == NULL) {
-        perror("Error al abrir el archivo calls.log");
-        exit(EXIT_FAILURE);
-    }
-
-    // Leer el archivo calls.log línea por línea y obtener los recuentos de las llamadas
-    while (fgets(buffer, sizeof(buffer), fp) != NULL) {
-        if (strstr(buffer, "READ_COUNTER=") != NULL) {
-            read_calls++;
-            sscanf(buffer, "READ_COUNTER=%d", &read_calls);
-        } else if (strstr(buffer, "WRITE_COUNTER=") != NULL) {
-            write_calls++;
-            sscanf(buffer, "WRITE_COUNTER=%d", &write_calls);
-        } else {
-            // Imprimir las llamadas al sistema en la consola
-            
-        }
-    }
+    
 
     // Cerrar el archivo
     fclose(fp);
