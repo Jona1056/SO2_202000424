@@ -34,7 +34,7 @@ int main() {
      srand(time(NULL) + getpid()); // si no cambiamos aqui otro proceso hijo tendra el mismo seed y haran lo mismo ambos
 
     // Abre el archivo para lectura/escritura
-    int file_descriptor = open("practica1.txt", O_RDWR | O_CREAT, 0644);
+    int file_descriptor = open("practica1.txt", O_RDWR | O_CREAT | O_TRUNC, 0644);
     if (file_descriptor == -1) {
         perror("Error al abrir el archivo");
         return 1;
