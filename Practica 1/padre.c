@@ -10,50 +10,41 @@
 int total_calls = 0;
 int read_calls = 0;
 int write_calls = 0;
-
+int seek_calls = 0;
 void sigint_handler(int signum) {
     char buffer[MAX_BUFFER_SIZE];
-    FILE *fp_calls, *fp_syscalls;
-    fp_syscalls = fopen(SYSLOG_FILE, "w");
-    if (fp_syscalls == NULL) {
-        perror("Error al abrir o vaciar el archivo de syscalls");
-        exit(EXIT_FAILURE);
-    }
-    fclose(fp_syscalls);
-    fp_calls = fopen("calls.log", "r");
+
+
+   
+    FILE *fp_calls = fopen(SYSLOG_FILE, "r");
     if (fp_calls == NULL) {
-        perror("Error al abrir el archivo calls.log");
-        exit(EXIT_FAILURE);
-    }
-    fp_syscalls = fopen(SYSLOG_FILE, "a");
-    if (fp_syscalls == NULL) {
-        perror("Error al abrir el archivo de syscalls para escritura");
-        fclose(fp_calls);
+        perror("Error al abrir el archivo de llamadas");
         exit(EXIT_FAILURE);
     }
 
-    // Leer el archivo calls.log línea por línea y obtener los recuentos de las llamadas
+ 
     while (fgets(buffer, sizeof(buffer), fp_calls) != NULL) {
-        if (strstr(buffer, "READ_COUNTER=") != NULL) {
+        if (strstr(buffer, "read") != NULL) {
             read_calls++;
-            sscanf(buffer, "READ_COUNTER=%d", &read_calls);
-        } else if (strstr(buffer, "WRITE_COUNTER=") != NULL) {
+        } else if (strstr(buffer, "write") != NULL) {
             write_calls++;
-            sscanf(buffer, "WRITE_COUNTER=%d", &write_calls);
-        } else {
-            fputs(buffer, fp_syscalls);
-            // Imprimir las llamadas al sistema en la consola
-            
+        }else if (strstr(buffer, "seek") != NULL){
+            seek_calls++;
         }
     }
-    // Imprimir el número total de llamadas al sistema
-    total_calls = read_calls + write_calls;
-    printf("Número total de llamadas al sistema: %d\n", total_calls);
 
-    // Imprimir el número de llamadas al sistema por tipo
+    // Cerrar el archivo después de leerlo
+    fclose(fp_calls);
+
+    // Calcular el total de llamadas
+    total_calls = read_calls + write_calls + seek_calls;
+
+    // Imprimir resultados
+    printf("Número total de llamadas al sistema: %d\n", total_calls);
     printf("Número de llamadas al sistema por tipo:\n");
     printf("Read: %d\n", read_calls);
     printf("Write: %d\n", write_calls);
+    printf("Seek: %d\n", seek_calls);
 
     // Terminar la ejecución del programa
     exit(EXIT_SUCCESS);
@@ -106,7 +97,7 @@ int main() {
     
     // Esperar a que ambos hijos terminen
     char command[100];
-    snprintf(command, sizeof(command), "sudo stap trace.stp %d %d > calls.log &", contador1, contador2);
+    snprintf(command, sizeof(command), "sudo stap trace.stp %d %d > syscalls.log &", contador1, contador2);
     system(command);
     int status;
     waitpid(pid, &status, 0);

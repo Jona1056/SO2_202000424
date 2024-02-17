@@ -1,11 +1,10 @@
 #!/ust/bin/stap
 
-global read_counter = 0
-global write_counter = 0
+
 global date_output
 probe syscall.read {
     if (pid() == $1 || pid() == $2) {
-        read_counter++;
+      
         system("sleep 0.1");
         system(sprintf("printf \"Proceso %d: %s (\" && date +\"%%Y-%%m-%%d %%H:%%M:%%S\" && printf \")\\n\"", pid(), "read"))
          system("sleep 0.1");
@@ -14,7 +13,7 @@ probe syscall.read {
 
 probe syscall.write {
     if (pid() == $1 || pid() == $2) {
-        write_counter++;
+     
         system("sleep 0.1");
        system(sprintf("printf \"Proceso %d: %s (\" && date +\"%%Y-%%m-%%d %%H:%%M:%%S\" && printf \")\\n\"", pid(), "write"))
       system("sleep 0.1");
@@ -23,9 +22,12 @@ probe syscall.write {
 
 
 
-
-
-probe end {
-    printf("READ_COUNTER=%d\n", read_counter) > "calls.log"
-    printf("WRITE_COUNTER=%d\n", write_counter) >> "calls.log"
+probe syscall.lseek {
+    if (pid() == $1 || pid() == $2) {
+     
+        system("sleep 0.1");
+       system(sprintf("printf \"Proceso %d: %s (\" && date +\"%%Y-%%m-%%d %%H:%%M:%%S\" && printf \")\\n\"", pid(), "seek"))
+      system("sleep 0.1");
+    }
 }
+
