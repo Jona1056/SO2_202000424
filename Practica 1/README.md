@@ -1,6 +1,6 @@
-# Manual Tecnico
-## Jonatan Leonel Garcia Arana
-# Introduccion 
+### Manual Tecnico
+### Jonatan Leonel Garcia Arana
+## Introduccion 
 El presente documento describe la practica destinada a comprender el funcionamiento de las
 llamadas al sistema en el contexto del sistema operativo Linux MINT. Se abordarán temas
 relacionados con la gestión de procesos, así como la capacidad de interceptar estas llamadas
@@ -10,9 +10,9 @@ cree dos procesos hijos. Estos procesos hijos realizarán operaciones de manejo 
 sobre un archivo específico, mientras que el proceso padre interceptará y registrará las llamadas
 al sistema realizadas por los hijos.
 #
-# Requerimientos minimos
+## Requerimientos minimos
 #
-# Requerimientos para Linux Mint:
+## Requerimientos para Linux Mint:
 - Sistema operativo: Linux Mint (versión específica, por ejemplo, Linux Mint 20.3 "Una").
 - Procesador: Procesador compatible con arquitectura de 32 bits (x86) o 64 bits (x64)
 - Memoria RAM: Se recomienda al menos 1 GB de RAM para compilaciones simples y
@@ -21,7 +21,7 @@ desarrollo básico en C. Para proyectos más complejos, se recomiendan 2 GB o m�
 - Herramientas de desarrollo: Compilador de C compatible con Linux Mint (se puede
 instalar GCC, por ejemplo)
 # 
-# Instalación y Configuración de Herramientas de Desarrollo:
+## Instalación y Configuración de Herramientas de Desarrollo:
 - Compilador GCC: El compilador GCC generalmente viene preinstalado en la mayoría de
 las distribuciones de Linux, incluyendo Linux Mint. Si no está instalado, puede instalarlo
 a través del gestor de paquetes de su distribución con el siguiente comando:
@@ -29,9 +29,13 @@ sudo apt-get install build-essential
 - Editor de texto o IDE: Puede utilizar cualquier editor de texto de su preferencia, como
 Vim, Emacs, o instalar un IDE como NetBeans, Code::Blocks, o Visual Studio Code
 #
-# Configuracion de las VPCs
+## INICIANDO EJECUCION DEL PROGRAMA
 #
-Area de trabajo de la Oficina A y Configuracion IP
+Para esta practica estaremos utilizando 3 archivos los cuales son los siguientes:
+- Padre.c: se encargara de la creacion de los procesos hijos y de la llamada a systemtrap
+- Hijo.c: tendra la logica necesaria para simular los procesos para cuando el padre mande a llamar a los hijos
+- Trace.stp: archivo de systemtrap, en el cual estaremos monitereando todas las llamdas a los procesos hijos(Read,Write,Seek)
+# Archivo Padre:
 <br>
 <img src="./Imagenes/Conf_oficinaA.png" alt="drawing" />
 <img src="./Imagenes/OficinaA.png" />
