@@ -36,15 +36,17 @@ Para esta practica estaremos utilizando 3 archivos los cuales son los siguientes
 - Hijo.c: tendra la logica necesaria para simular los procesos para cuando el padre mande a llamar a los hijos
 - Trace.stp: archivo de systemtrap, en el cual estaremos monitereando todas las llamdas a los procesos hijos(Read,Write,Seek)
 ### Archivo Padre:
-<br>
-<img src="./Imagenes/Conf_oficinaA.png" alt="drawing" />
-<img src="./Imagenes/OficinaA.png" />
+#### librerias utilizadas 
+- stdio.h
+- stdlib.h
+- unistd.h
+- syst/wait.h
+- string.h
+- signal.h
+#### Variables
 #
-Area de trabajo de la Oficina B y Configuracion IP
 <br>
-<img src="./Imagenes/Conf_oficinaB.png" alt="drawing"/>
-<img src="./Imagenes/OficinaB.png"  />
-
+<img src="./Imagenes/variables.png" alt="drawing"/>
 #
 Area de trabajo de la Oficina C y Configuracion IP
 <br>
