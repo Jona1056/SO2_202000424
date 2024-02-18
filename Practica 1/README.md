@@ -53,24 +53,24 @@ Para esta practica estaremos utilizando 3 archivos los cuales son los siguientes
 En esta parte creamos unos contadores, los cuales nos ayudaran a llevar el control delos PID y asimismo declaramos el metodo signal, el cual nos ayuda a capturar el ctrl + C, mas adelante explicaremos que hace cuando se hace esto.
 <br>
 <img src="./Imagenes/Inicio_padre.png" alt="drawing"/>
+<br>
 Luego declaramos el primer fork, que es el primero que estaremos utilizando en el programa
 <br>
 <img src="./Imagenes/logica_fork.png" alt="drawing" />
 
 en esta parte del codigo, tendremos la logica para ejecutar nuestro procesos hijos, el cual si entra al primer if que iguala a -1, este es un error, luego sabemos que si el PID que viene es mayor a 0 es el proceso padre, encontes cuando entra a este else if, creamos el segundo proceso hijo y siguiendo la misma logica para el primer hijo pues verificamos si el PID2 que viene es padre o hijo y si no es mayor a 0 es el proceso hijo, entonces en el else del proceso hijo, mandamos a ejecutar el archivo hijo.bin, esto lo hacemos con execv. 
 ambos hijos llaman al mismo archivo, ya que esatermos simulando el mismo proceso
-
 #
-Area de trabajo de Administracion y Configuracion IP
+### llamada a archivo systemtrap
+para la llamada de este archivo tenemos un char de 100 caracteres, el cual utilizaremos para almacenar el comando, luego con ayuda de un snprintf, que guarda el comando, el cual seria sudo stap trace.stp, el cual va redirigir toda su salida al archivo syscall.log. Este archivo trace.stp va recibir dos parametros, el cual es el pid del hijo 1 en este caso contador1 y el pid del hijo 2 en este caso contador 2, con el system(command) mandamos a ejecutar el systemrap y luego con un waitpid esperamos a que terminen los procesos hijos.
 <br>
-<img src="./Imagenes/Conf_administracion.png" alt="drawing" />
-<img src="./Imagenes/Administracion.png" alt="drawing" />
-
-#
+<img src="./Imagenes/llamada_systemtrap.png" alt="drawing" />
+### Método hijo que escribe en el archivo: 
+en esta parte, tenemos un metodo llamdo hijo_escribir, el cual recibe el file, que seria el open del archivo practica1.txt, se crea un char de 8 caracteres y con un for, el cual tiene un random, ingresa a escribir números o a escribir letras, luego con un write escribimos en el archivo
 Area de trabajo de Recursos y Configuracion IP
 <br>
-<img src="./Imagenes/Conf_recursos.png" alt="drawing">
-<img src="./Imagenes/Recursos.png" alt="drawing" />
+<img src="./Imagenes/hijo_escribir" alt="drawing">
+
 #
 Area de trabajo de Atencion al Cliente y Configuracion IP
 <br>
