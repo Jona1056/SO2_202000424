@@ -1,23 +1,33 @@
 # Manual Tecnico
 ## Jonatan Leonel Garcia Arana
-# Objetivos 
-- Proporcionar una descripción completa de la topología de la red diseñada para el pequeño negocio de dos niveles, incluyendo la disposición de los equipos, la configuración de los switches, y la estructura de la red en estrella.
-- Detallar la configuración de las máquinas virtuales VPC y switches de capa 2, así como la implementación de los protocolos Ethernet, IP, ARP e ICMP en la red diseñada.
-- Proporcionar una guía detallada y paso a paso sobre cómo recrear la topología de red en Packet Tracer, incluyendo la configuración de dispositivos, la asignación de direcciones IP, y la interconexión de equipos.
+# Introduccion 
+El presente documento describe la practica destinada a comprender el funcionamiento de las
+llamadas al sistema en el contexto del sistema operativo Linux MINT. Se abordarán temas
+relacionados con la gestión de procesos, así como la capacidad de interceptar estas llamadas
+para monitorear y registrar su actividad.
+El objetivo principal es desarrollar un programa en lenguaje C que actúe como proceso padre y
+cree dos procesos hijos. Estos procesos hijos realizarán operaciones de manejo de archivos
+sobre un archivo específico, mientras que el proceso padre interceptará y registrará las llamadas
+al sistema realizadas por los hijos.
 #
 # Requerimientos minimos
 #
-Cisco Packet Tracer 8.2 (64 bits):
-- Computadora con uno de los siguientes sistemas operativos: Microsoft Windows 8.1, 10, 11 (64 bits), Ubuntu 20.04, 22.04 LTS (64 bits) o macOS 10.14 o posterior.
-- CPU amd64 (x86-64)
-- 4 GB de RAM libre
-- 1,4 GB de espacio en disco libre
-#
-Cisco Packet Tracer 8.2 (32 bits):
-- Computadora con uno de los siguientes sistemas operativos: Microsoft Windows 8.1, 10 (32 bits)
-- CPU x86 compatible
-- 2 GB de RAM libre
-- 1,4 GB de espacio en disco libre
+# Requerimientos para Linux Mint:
+- Sistema operativo: Linux Mint (versión específica, por ejemplo, Linux Mint 20.3 "Una").
+- Procesador: Procesador compatible con arquitectura de 32 bits (x86) o 64 bits (x64)
+- Memoria RAM: Se recomienda al menos 1 GB de RAM para compilaciones simples y
+desarrollo básico en C. Para proyectos más complejos, se recomiendan 2 GB o más.
+- Espacio en disco: Se recomienda un mínimo de 16 GB de espacio disponible en disco
+- Herramientas de desarrollo: Compilador de C compatible con Linux Mint (se puede
+instalar GCC, por ejemplo)
+# 
+# Instalación y Configuración de Herramientas de Desarrollo:
+- Compilador GCC: El compilador GCC generalmente viene preinstalado en la mayoría de
+las distribuciones de Linux, incluyendo Linux Mint. Si no está instalado, puede instalarlo
+a través del gestor de paquetes de su distribución con el siguiente comando:
+sudo apt-get install build-essential
+- Editor de texto o IDE: Puede utilizar cualquier editor de texto de su preferencia, como
+Vim, Emacs, o instalar un IDE como NetBeans, Code::Blocks, o Visual Studio Code
 #
 # Configuracion de las VPCs
 #
