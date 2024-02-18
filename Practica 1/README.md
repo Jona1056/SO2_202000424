@@ -87,7 +87,7 @@ Con un lseek podemos redireccionar a cualquier lugar del archivo el apuntador, e
 ### Metodo que captura la señal ctrl + C:
 En esta parte del codigo tendermos la logica para obtener el conteo de los procesos que se hicieron, para esto utilizamos un fopen, el cual abre el archivo syscall.logs y recorremos el archivo con un while, en el cual si encuentra la palabra read, write o seek, suma la variable dependiendo la condicion encontrada, con una serie de pasos simples, obtenemos el conteo toal y ya imprimimos en consola nuestros procesos totales.
 <br>
-<img src="./Imagenes/singint.png" alt="drawing" />
+<img src="./Imagenes/signint.png" alt="drawing" />
 
 #
 ### Funcion main del archivo hijo
@@ -114,7 +114,7 @@ buscaría todos los procesos write, que concuerden con el pid de los procesos hi
 Como con los métodos anteriores, lo único que cambieremos será el nombre del
 método, que en este caso seria syscall.lseek, el cual leerá todos los seek que
 hagamos cuando concuerde los pid de los procesos hijos
-<br>}
+<br>
 <img src="./Imagenes/systemtrap_seek.png" alt="drawing" />
 
 
