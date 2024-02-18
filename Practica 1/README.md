@@ -87,7 +87,7 @@ Con un lseek podemos redireccionar a cualquier lugar del archivo el apuntador, e
 ### Metodo que captura la señal ctrl + C:
 En esta parte del codigo tendermos la logica para obtener el conteo de los procesos que se hicieron, para esto utilizamos un fopen, el cual abre el archivo syscall.logs y recorremos el archivo con un while, en el cual si encuentra la palabra read, write o seek, suma la variable dependiendo la condicion encontrada, con una serie de pasos simples, obtenemos el conteo toal y ya imprimimos en consola nuestros procesos totales.
 <br>
-<img src="./Imagenes/singint" alt="drawing" />
+<img src="./Imagenes/singint.png" alt="drawing" />
 
 #
 ### Funcion main del archivo hijo
@@ -98,19 +98,19 @@ En esta funcion, creamos el archivo practica1.txt en el cual se hace los proceso
 #
 ### Metodos en el archivo de systemtrap:
 Systemrap es una herramientas que nos ayuda a llevar el control de procesos en Linux, entonces con systemtrap podemos crear un script el cual nos ayudara a saber que procesos se hacen con el respectivo PID
-- Metodo que controla los read:
+### Metodo que controla los read:
 Systemtrap nos da la opcion de controlar las llamadas que se hacen, entonces con un probe syscall.read, podemos obtener todos los read, pero para buscar los read que hacen los PID delos hijos tenemos que poner un if, en el cual igualando con los parametros que obtiene el comando, podemos encontrar el PID al cual pertenece, como un tipo de filtro.
 <br>
 <img src="./Imagenes/systemtrap_read.png" alt="drawing" />
 <br>
-- Metodo que controla los write:
+### Metodo que controla los write:
 De igual manera que el método de read, lo único que cambia con este método es
 el syscall.read, en vez de ser read, pues utilizaríamos la palabra write, la cual
 buscaría todos los procesos write, que concuerden con el pid de los procesos hijos
 <br>
 <img src="./Imagenes/systemtrap_write.png" alt="drawing" />
 <br>
-- Metodo que controla los seek:
+### Metodo que controla los seek:
 Como con los métodos anteriores, lo único que cambieremos será el nombre del
 método, que en este caso seria syscall.lseek, el cual leerá todos los seek que
 hagamos cuando concuerde los pid de los procesos hijos
