@@ -1,5 +1,5 @@
-### Manual Tecnico
-### Jonatan Leonel Garcia Arana
+# Manual Tecnico
+## Jonatan Leonel Garcia Arana
 ## Introduccion 
 El presente documento describe la practica destinada a comprender el funcionamiento de las
 llamadas al sistema en el contexto del sistema operativo Linux MINT. Se abordarán temas
@@ -35,7 +35,7 @@ Para esta practica estaremos utilizando 3 archivos los cuales son los siguientes
 - Padre.c: se encargara de la creacion de los procesos hijos y de la llamada a systemtrap
 - Hijo.c: tendra la logica necesaria para simular los procesos para cuando el padre mande a llamar a los hijos
 - Trace.stp: archivo de systemtrap, en el cual estaremos monitereando todas las llamdas a los procesos hijos(Read,Write,Seek)
-# Archivo Padre:
+### Archivo Padre:
 <br>
 <img src="./Imagenes/Conf_oficinaA.png" alt="drawing" />
 <img src="./Imagenes/OficinaA.png" />
