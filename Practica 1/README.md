@@ -47,17 +47,14 @@ Para esta practica estaremos utilizando 3 archivos los cuales son los siguientes
 #
 <br>
 <img src="./Imagenes/variables.png" alt="drawing"/>
-#
 ### INICIO DEL CODIGO
 En esta parte creamos unos contadores, los cuales nos ayudaran a llevar el control delos PID y asimismo declaramos el metodo signal, el cual nos ayuda a capturar el ctrl + C, mas adelante explicaremos que hace cuando se hace esto.
 <br>
 <img src="./Imagenes/Inicio_padre.png" alt="drawing"/>
-
-#
-Area de trabajo de Gerencia y Configuracion IP
+Luego declaramos el primer fork, que es el primero que estaremos utilizando en el programa
 <br>
-<img src="./Imagenes/Conf_gerencia.png" alt="drawing" />
-<img src="./Imagenes/Gerencia.png" alt="drawing"/>
+<img src="./Imagenes/logica_fork.png" alt="drawing" />
+
 
 #
 Area de trabajo de Administracion y Configuracion IP
