@@ -47,7 +47,9 @@ Para esta practica estaremos utilizando 3 archivos los cuales son los siguientes
 #
 <br>
 <img src="./Imagenes/variables.png" alt="drawing"/>
+
 ### INICIO DEL CODIGO
+
 En esta parte creamos unos contadores, los cuales nos ayudaran a llevar el control delos PID y asimismo declaramos el metodo signal, el cual nos ayuda a capturar el ctrl + C, mas adelante explicaremos que hace cuando se hace esto.
 <br>
 <img src="./Imagenes/Inicio_padre.png" alt="drawing"/>
@@ -55,6 +57,8 @@ Luego declaramos el primer fork, que es el primero que estaremos utilizando en e
 <br>
 <img src="./Imagenes/logica_fork.png" alt="drawing" />
 
+en esta parte del codigo, tendremos la logica para ejecutar nuestro procesos hijos, el cual si entra al primer if que iguala a -1, este es un error, luego sabemos que si el PID que viene es mayor a 0 es el proceso padre, encontes cuando entra a este else if, creamos el segundo proceso hijo y siguiendo la misma logica para el primer hijo pues verificamos si el PID2 que viene es padre o hijo y si no es mayor a 0 es el proceso hijo, entonces en el else del proceso hijo, mandamos a ejecutar el archivo hijo.bin, esto lo hacemos con execv. 
+ambos hijos llaman al mismo archivo, ya que esatermos simulando el mismo proceso
 
 #
 Area de trabajo de Administracion y Configuracion IP
