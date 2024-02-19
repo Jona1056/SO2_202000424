@@ -1,68 +1,74 @@
-Proceso 8204: read (2024-02-17 22:37:49
+Proceso 6052: read (2024-02-19 09:29:40
 )
-Proceso 8205: write (2024-02-17 22:37:49
+Proceso 6051: write (2024-02-19 09:29:40
 )
-Proceso 8204: seek (2024-02-17 22:37:50
+Proceso 6051: write (2024-02-19 09:29:41
 )
-Proceso 8205: read (2024-02-17 22:37:51
+Proceso 6052: write (2024-02-19 09:29:42
 )
-Proceso 8205: read (2024-02-17 22:37:52
+Proceso 6051: read (2024-02-19 09:29:42
 )
-Proceso 8204: seek (2024-02-17 22:37:53
+Proceso 6052: seek (2024-02-19 09:29:43
 )
-Proceso 8204: seek (2024-02-17 22:37:54
+Proceso 6051: write (2024-02-19 09:29:43
 )
-Proceso 8205: seek (2024-02-17 22:37:54
+Proceso 6052: write (2024-02-19 09:29:45
 )
-Proceso 8205: seek (2024-02-17 22:37:55
+Proceso 6052: write (2024-02-19 09:29:46
 )
-Proceso 8205: read (2024-02-17 22:37:56
+Proceso 6051: read (2024-02-19 09:29:46
 )
-Proceso 8204: seek (2024-02-17 22:37:57
+Proceso 6051: read (2024-02-19 09:29:47
 )
-Proceso 8204: read (2024-02-17 22:37:59
+Proceso 6052: write (2024-02-19 09:29:49
 )
-Proceso 8205: read (2024-02-17 22:37:59
+Proceso 6051: write (2024-02-19 09:29:49
 )
-Proceso 8205: write (2024-02-17 22:38:01
+Proceso 6052: read (2024-02-19 09:29:50
 )
-Proceso 8204: read (2024-02-17 22:38:02
+Proceso 6052: seek (2024-02-19 09:29:51
 )
-Proceso 8205: write (2024-02-17 22:38:03
+Proceso 6051: read (2024-02-19 09:29:51
 )
-Proceso 8204: write (2024-02-17 22:38:04
+Proceso 6051: read (2024-02-19 09:29:52
 )
-Proceso 8205: write (2024-02-17 22:38:06
+Proceso 6051: write (2024-02-19 09:29:53
 )
-Proceso 8204: read (2024-02-17 22:38:07
+Proceso 6052: read (2024-02-19 09:29:54
 )
-Proceso 8204: seek (2024-02-17 22:38:08
+Proceso 6052: seek (2024-02-19 09:29:55
 )
-Proceso 8205: write (2024-02-17 22:38:09
+Proceso 6051: seek (2024-02-19 09:29:56
 )
-Proceso 8204: seek (2024-02-17 22:38:10
+Proceso 6052: seek (2024-02-19 09:29:57
 )
-Proceso 8204: write (2024-02-17 22:38:12
+Proceso 6052: write (2024-02-19 09:29:58
 )
-Proceso 8205: seek (2024-02-17 22:38:12
+Proceso 6051: write (2024-02-19 09:29:59
 )
-Proceso 8205: write (2024-02-17 22:38:13
+Proceso 6052: seek (2024-02-19 09:29:59
 )
-Proceso 8204: write (2024-02-17 22:38:14
+Proceso 6052: seek (2024-02-19 09:30:01
 )
-Proceso 8205: read (2024-02-17 22:38:14
+Proceso 6051: seek (2024-02-19 09:30:02
 )
-Proceso 8205: read (2024-02-17 22:38:15
+Proceso 6052: write (2024-02-19 09:30:02
 )
-Proceso 8204: seek (2024-02-17 22:38:17
+Proceso 6051: read (2024-02-19 09:30:05
 )
-Proceso 8205: read (2024-02-17 22:38:17
+Proceso 6052: read (2024-02-19 09:30:05
 )
-Proceso 8204: read (2024-02-17 22:38:18
+Proceso 6051: write (Proceso 6052: write (2024-02-19 09:30:06
 )
-Proceso 8204: write (2024-02-17 22:38:19
+2024-02-19 09:30:06
 )
-Proceso 8204: read (2024-02-17 22:38:21
+Proceso 6052: read (2024-02-19 09:30:08
 )
-Proceso 8205: write (2024-02-17 22:38:21
+Proceso 6051: write (2024-02-19 09:30:09
+)
+Proceso 6051: seek (2024-02-19 09:30:10
+)
+Proceso 6051: seek (Proceso 6052: seek (2024-02-19 09:30:11
+2024-02-19 09:30:11
+)
 )
