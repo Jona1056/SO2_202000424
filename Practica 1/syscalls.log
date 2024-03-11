@@ -1,68 +1,168 @@
-Proceso 8204: read (2024-02-17 22:37:49
+Proceso 6006: write (2024-02-19 16:40:05
 )
-Proceso 8205: write (2024-02-17 22:37:49
+Proceso 6005: write (2024-02-19 16:40:07
 )
-Proceso 8204: seek (2024-02-17 22:37:50
+Proceso 6006: read (2024-02-19 16:40:08
 )
-Proceso 8205: read (2024-02-17 22:37:51
+Proceso 6005: write (2024-02-19 16:40:09
 )
-Proceso 8205: read (2024-02-17 22:37:52
+Proceso 6005: write (2024-02-19 16:40:10
 )
-Proceso 8204: seek (2024-02-17 22:37:53
+Proceso 6006: write (2024-02-19 16:40:11
 )
-Proceso 8204: seek (2024-02-17 22:37:54
+Proceso 6005: seek (2024-02-19 16:40:12
 )
-Proceso 8205: seek (2024-02-17 22:37:54
+Proceso 6006: read (2024-02-19 16:40:13
 )
-Proceso 8205: seek (2024-02-17 22:37:55
+Proceso 6005: write (2024-02-19 16:40:14
 )
-Proceso 8205: read (2024-02-17 22:37:56
+Proceso 6006: write (2024-02-19 16:40:15
 )
-Proceso 8204: seek (2024-02-17 22:37:57
+Proceso 6005: read (2024-02-19 16:40:17
 )
-Proceso 8204: read (2024-02-17 22:37:59
+Proceso 6006: write (2024-02-19 16:40:18
 )
-Proceso 8205: read (2024-02-17 22:37:59
+Proceso 6005: write (2024-02-19 16:40:20
 )
-Proceso 8205: write (2024-02-17 22:38:01
+Proceso 6005: write (2024-02-19 16:40:21
 )
-Proceso 8204: read (2024-02-17 22:38:02
+Proceso 6006: read (2024-02-19 16:40:21
 )
-Proceso 8205: write (2024-02-17 22:38:03
+Proceso 6006: seek (2024-02-19 16:40:23
 )
-Proceso 8204: write (2024-02-17 22:38:04
+Proceso 6005: read (2024-02-19 16:40:24
 )
-Proceso 8205: write (2024-02-17 22:38:06
+Proceso 6006: write (2024-02-19 16:40:25
 )
-Proceso 8204: read (2024-02-17 22:38:07
+Proceso 6005: seek (2024-02-19 16:40:27
 )
-Proceso 8204: seek (2024-02-17 22:38:08
+Proceso 6006: write (2024-02-19 16:40:27
 )
-Proceso 8205: write (2024-02-17 22:38:09
+Proceso 6005: read (2024-02-19 16:40:28
 )
-Proceso 8204: seek (2024-02-17 22:38:10
+Proceso 6006: read (2024-02-19 16:40:28
 )
-Proceso 8204: write (2024-02-17 22:38:12
+Proceso 6006: write (2024-02-19 16:40:29
 )
-Proceso 8205: seek (2024-02-17 22:38:12
+Proceso 6005: seek (2024-02-19 16:40:30
 )
-Proceso 8205: write (2024-02-17 22:38:13
+Proceso 6006: write (2024-02-19 16:40:30
 )
-Proceso 8204: write (2024-02-17 22:38:14
+Proceso 6005: write (2024-02-19 16:40:31
 )
-Proceso 8205: read (2024-02-17 22:38:14
+Proceso 6006: write (2024-02-19 16:40:32
 )
-Proceso 8205: read (2024-02-17 22:38:15
+Proceso 6005: read (2024-02-19 16:40:34
 )
-Proceso 8204: seek (2024-02-17 22:38:17
+Proceso 6005: write (2024-02-19 16:40:35
 )
-Proceso 8205: read (2024-02-17 22:38:17
+Proceso 6006: read (2024-02-19 16:40:35
 )
-Proceso 8204: read (2024-02-17 22:38:18
+Proceso 6005: read (2024-02-19 16:40:37
 )
-Proceso 8204: write (2024-02-17 22:38:19
+Proceso 6006: read (2024-02-19 16:40:37
 )
-Proceso 8204: read (2024-02-17 22:38:21
+Proceso 6005: read (2024-02-19 16:40:38
 )
-Proceso 8205: write (2024-02-17 22:38:21
+Proceso 6006: write (Proceso 6005: seek (2024-02-19 16:40:40
+)
+2024-02-19 16:40:40
+)
+Proceso 6006: read (2024-02-19 16:40:42
+)
+Proceso 6005: seek (2024-02-19 16:40:42
+)
+Proceso 6006: read (2024-02-19 16:40:43
+)
+Proceso 6005: write (2024-02-19 16:40:43
+)
+Proceso 6006: write (2024-02-19 16:40:44
+)
+Proceso 6005: seek (2024-02-19 16:40:45
+)
+Proceso 6005: seek (2024-02-19 16:40:46
+)
+Proceso 6006: seek (2024-02-19 16:40:46
+)
+Proceso 6006: read (2024-02-19 16:40:47
+)
+Proceso 6006: read (2024-02-19 16:40:48
+)
+Proceso 6005: write (2024-02-19 16:40:49
+)
+Proceso 6006: write (2024-02-19 16:40:50
+)
+Proceso 6005: seek (2024-02-19 16:40:51
+)
+Proceso 6006: read (2024-02-19 16:40:53
+)
+Proceso 6005: read (2024-02-19 16:40:54
+)
+Proceso 6006: seek (2024-02-19 16:40:54
+)
+Proceso 6006: seek (2024-02-19 16:40:55
+)
+Proceso 6006: seek (2024-02-19 16:40:56
+)
+Proceso 6005: read (2024-02-19 16:40:57
+)
+Proceso 6006: seek (2024-02-19 16:40:57
+)
+Proceso 6006: write (2024-02-19 16:40:58
+)
+Proceso 6005: read (2024-02-19 16:41:00
+)
+Proceso 6006: seek (2024-02-19 16:41:01
+)
+Proceso 6005: write (2024-02-19 16:41:02
+)
+Proceso 6006: read (2024-02-19 16:41:02
+)
+Proceso 6006: seek (2024-02-19 16:41:03
+)
+Proceso 6006: seek (2024-02-19 16:41:04
+)
+Proceso 6005: write (2024-02-19 16:41:05
+)
+Proceso 6006: read (2024-02-19 16:41:06
+)
+Proceso 6006: write (2024-02-19 16:41:07
+)
+Proceso 6005: read (2024-02-19 16:41:08
+)
+Proceso 6006: read (2024-02-19 16:41:08
+)
+Proceso 6005: read (2024-02-19 16:41:09
+)
+Proceso 6006: write (2024-02-19 16:41:09
+)
+Proceso 6006: read (2024-02-19 16:41:10
+)
+Proceso 6006: read (2024-02-19 16:41:11
+)
+Proceso 6005: seek (2024-02-19 16:41:12
+)
+Proceso 6006: seek (2024-02-19 16:41:13
+)
+Proceso 6005: read (2024-02-19 16:41:15
+)
+Proceso 6006: seek (2024-02-19 16:41:15
+)
+Proceso 6005: write (2024-02-19 16:41:16
+)
+Proceso 6005: seek (2024-02-19 16:41:18
+)
+Proceso 6006: read (2024-02-19 16:41:18
+)
+Proceso 6005: seek (2024-02-19 16:41:21
+)
+Proceso 6006: seek (2024-02-19 16:41:21
+)
+Proceso 6006: read (2024-02-19 16:41:22
+)
+Proceso 6005: seek (2024-02-19 16:41:23
+)
+Proceso 6005: read (2024-02-19 16:41:24
+)
+Proceso 6006: read (2024-02-19 16:41:26
 )

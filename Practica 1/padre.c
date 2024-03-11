@@ -72,8 +72,9 @@ int main() {
             snprintf(command, sizeof(command), "sudo stap trace.stp %d %d > syscalls.log &", contador1, contador2);
             system(command);
             int status;
-            waitpid(pid, &status, 0);
-            waitpid(pid2, &status, 0);
+            wait(&status);
+            wait(&status);
+
         } else {
             // Estamos en el proceso hijo 2
             //printf("Proceso hijo 2 creado con PID: %d\n", getpid());
