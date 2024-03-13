@@ -16,7 +16,9 @@ struct data_struct
 struct data_struct usuarios[MAX_USERS];
 int contador_global = 0;
 pthread_t thread1, thread2, thread3;
-
+#define MAX_ERRORES 1000
+char errores[MAX_ERRORES][MAX_LINE_LENGTH]; // Buffer para almacenar mensajes de error
+int num_errores = 0;
 struct ThreadArgs
 {
     FILE *file;
@@ -35,6 +37,14 @@ int verificar_numero(int nuevo_numero, int contador_global)
         }
     }
     return 0; // El número de cuenta no existe
+}
+void eliminar_salto_linea(char *cadena)
+{
+    size_t longitud = strlen(cadena);
+    if (longitud > 0 && cadena[longitud - 1] == '\n')
+    {
+        cadena[longitud - 1] = '\0'; // Reemplaza el salto de línea con el carácter nulo
+    }
 }
 void *read_file(void *args)
 {
@@ -57,7 +67,7 @@ void *read_file(void *args)
 
         if (verificar_numero(nuevo_numero_cuenta, contador_global))
         {
-            printf("Error: Ya existe el numero de cuenta %d\n", contador_global + 2);
+         sprintf(errores[num_errores++], "Linea %d: Ya existe el numero de cuenta %d", contador_global + 2, nuevo_numero_cuenta);
             (contador_global)++;
             (*contador_hilo_local)++;
         }
@@ -74,15 +84,45 @@ void *read_file(void *args)
             }
             else
             {
-                float saldo_temp;
-                if (sscanf(token, "%f", &saldo_temp) != 1 || saldo_temp < 0)
+                int contiene_letras = 0;
+
+                // Convertir token a una cadena de caracteres
+                char token_string[MAX_LINE_LENGTH];
+                strcpy(token_string, token);
+
+              
+
+
+               
+                for (int i = 0; token[i] != '\0'; i++)
                 {
-                    printf("Error: Saldo no válido en la línea %d\n", contador_global + 2);
+                    if (!isdigit(token[i]) && token[i] != '.' && token[i] != '-' && token[i] != '\n')
+                    {
+                        
+                        contiene_letras = 1;
+                        break;
+                    }
+                }
+
+                if (contiene_letras)
+                {
+                    eliminar_salto_linea(token);
+                   sprintf(errores[num_errores++], "Linea %d: El saldo '%s' contiene caracteres no válidos", contador_global + 2, token);
                     usuarios[contador_global].saldo = 0.0;
                 }
                 else
                 {
-                    usuarios[contador_global].saldo = saldo_temp;
+                    float saldo_temp;
+                    if (sscanf(token, "%f", &saldo_temp) != 1 || saldo_temp < 0)
+                    {
+                        eliminar_salto_linea(token);
+                       sprintf(errores[num_errores++], "Linea %d: El saldo es negativo '%s' " , contador_global + 2, token);
+                        usuarios[contador_global].saldo = 0.0;
+                    }
+                    else
+                    {
+                        usuarios[contador_global].saldo = saldo_temp;
+                    }
                 }
             }
 
@@ -136,7 +176,19 @@ int main()
         printf("No_cuenta: %d  Nombre: %s   Saldo: %.2f\n",
                usuarios[i].no_cuenta, usuarios[i].nombre, usuarios[i].saldo);
     }
+ FILE *archivo_errores = fopen("errores.txt", "w");
+    if (archivo_errores == NULL) {
+        perror("Error al abrir el archivo de errores");
+        return 1;
+    }
 
+    // Escribir los errores en el archivo
+    for (int i = 0; i < num_errores; i++) {
+        eliminar_salto_linea(errores[i]);
+        fprintf(archivo_errores, "%s\n", errores[i]);
+    }
+
+    fclose(archivo_errores);
     fclose(fp);
     return 0;
 }

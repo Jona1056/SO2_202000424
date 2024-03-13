@@ -1,0 +1,10 @@
+Linea 8: El saldo 'quinientos mil' contiene caracteres no válidos
+Linea 20: El saldo es negativo '-3200.6' 
+Linea 26: El saldo '1o00' contiene caracteres no válidos
+Linea 32: Ya existe el numero de cuenta 9439
+Linea 42: El saldo es negativo '-4.15' 
+Linea 57: Ya existe el numero de cuenta 5877
+Linea 60: Ya existe el numero de cuenta 2096
+Linea 70: Ya existe el numero de cuenta 6051
+Linea 92: El saldo 'a' contiene caracteres no válidos
+Linea 101: Ya existe el numero de cuenta 3959
