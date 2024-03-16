@@ -1,0 +1,48 @@
+------- Resumen de Operaciones ------
+
+Fecha: 2024-03-16 13:08:36
+
+Operaciones Realizadas:
+Retiros: 57
+Trasnferencias: 49
+Depositos: 63
+Total: 169
+
+Operaciones por hilo:
+Hilo 1: contador[0] = 51
+Hilo 2: contador[1] = 51
+Hilo 3: contador[2] = 49
+Hilo 4: contador[3] = 49
+
+Transacciones:
+- Linea 3: La cuenta a creditar no existe: '4775'
+- Linea 5: La cuenta a creditar no existe: '5237'
+- Linea 11: El monto es invalido: '-90.900002'
+- Linea 20: Operacion Invalida: '4'
+- Linea 29: No tiene suficientes fondos: '1156'
+- Linea 39: Operacion Invalida: '4'
+- Linea 40: No tiene suficientes fondos: '5350'
+- Linea 52: Operacion Invalida: '4'
+- Linea 53: La cuenta a creditar no existe: '4483'
+- Linea 64: Operacion Invalida: '5'
+- Linea 65: La cuenta no existe: '7717'
+- Linea 73: el monto es invalido: '-1262.150024'
+- Linea 80: No tiene suficientes fondos: '9470'
+- Linea 81: Operacion Invalida: '4'
+- Linea 87: Operacion Invalida: '6'
+- Linea 125: El monto es invalido: '-72.480003'
+- Linea 130: No tiene suficientes fondos: '4929'
+- Linea 131: Operacion Invalida: '4'
+- Linea 141: el monto es invalido: '-13.420000'
+- Linea 146: Operacion Invalida: '9'
+- Linea 148: La cuenta a debitar no existe: '4024'
+- Linea 164: La cuenta a creditar no existe: '4775'
+- Linea 174: el monto es invalido: '-413.570007'
+- Linea 180: Cuenta con saldos insuficientes: '1156'
+- Linea 181: Cuenta con saldos insuficientes: '4972'
+- Linea 185: el monto es invalido: '-44.220001'
+- Linea 187: La cuenta a creditar no existe: '4024'
+- Linea 188: el monto es invalido: '-52.759998'
+- Linea 196: Operacion Invalida: '5'
+- Linea 198: La cuenta a creditar no existe: '5006'
+- Linea 201: Cuenta con saldos insuficientes: '2770'

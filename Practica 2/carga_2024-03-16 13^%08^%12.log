@@ -1,0 +1,21 @@
+------- Carga de Usuarios ------
+
+Fecha: 2024-03-16 13:08:12
+
+Usuarios Cargados:
+Hilo#1: 28
+Hilo#2: 33
+Hilo#3: 33
+Total: 94
+
+Errores: 
+- Linea 8: El saldo 'quinientos mil' contiene caracteres no válidos
+- Linea 19: El saldo es negativo '-3200.6' 
+- Linea 24: El saldo '1o00' contiene caracteres no válidos
+- Linea 29: Ya existe el numero de cuenta 9439
+- Linea 38: El saldo es negativo '-4.15' 
+- Linea 52: Ya existe el numero de cuenta 5877
+- Linea 54: Ya existe el numero de cuenta 2096
+- Linea 63: Ya existe el numero de cuenta 6051
+- Linea 84: El saldo 'a' contiene caracteres no válidos
+- Linea 92: Ya existe el numero de cuenta 3959
