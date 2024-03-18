@@ -1,14 +1,7 @@
 # Manual Tecnico
 ## Jonatan Leonel Garcia Arana
 ## Introduccion 
-El presente documento describe la practica destinada a comprender el funcionamiento de las
-llamadas al sistema en el contexto del sistema operativo Linux MINT. Se abordarán temas
-relacionados con la gestión de procesos, así como la capacidad de interceptar estas llamadas
-para monitorear y registrar su actividad.
-El objetivo principal es desarrollar un programa en lenguaje C que actúe como proceso padre y
-cree dos procesos hijos. Estos procesos hijos realizarán operaciones de manejo de archivos
-sobre un archivo específico, mientras que el proceso padre interceptará y registrará las llamadas
-al sistema realizadas por los hijos.
+El presente manual técnico proporciona una guía detallada sobre el desarrollo e implementación de una aplicación en consola en el lenguaje de programación C para el manejo de datos de usuarios y operaciones monetarias en un entorno bancario. Este sistema está diseñado para proporcionar una carga masiva de usuarios y operaciones, así como realizar operaciones individuales y generar reportes sobre el estado de cuentas y las actividades realizadas.
 #
 ## Requerimientos minimos
 #
@@ -31,11 +24,8 @@ Vim, Emacs, o instalar un IDE como NetBeans, Code::Blocks, o Visual Studio Code
 #
 ## INICIANDO EJECUCION DEL PROGRAMA
 #
-Para esta practica estaremos utilizando 3 archivos los cuales son los siguientes:
-- Padre.c: se encargara de la creacion de los procesos hijos y de la llamada a systemtrap
-- Hijo.c: tendra la logica necesaria para simular los procesos para cuando el padre mande a llamar a los hijos
-- Trace.stp: archivo de systemtrap, en el cual estaremos monitereando todas las llamdas a los procesos hijos(Read,Write,Seek)
-### Archivo Padre:
+Para esta practica estaremos alojando todo en el archivo main.c, el cual contendra toda la logica y la creacion de hilos y la implementacion de mutex.
+### Archivo Main:
 #### librerias utilizadas 
 - stdio.h
 - stdlib.h
@@ -43,16 +33,14 @@ Para esta practica estaremos utilizando 3 archivos los cuales son los siguientes
 - syst/wait.h
 - string.h
 - signal.h
-#### Variables
-#
-<br>
-<img src="./Imagenes/variables.png" alt="drawing"/>
+- time.h
+- ctype.h
 
 ### INICIO DEL CODIGO
 
-En esta parte creamos unos contadores, los cuales nos ayudaran a llevar el control delos PID y asimismo declaramos el metodo signal, el cual nos ayuda a capturar el ctrl + C, mas adelante explicaremos que hace cuando se hace esto.
+En la funcion main tendremos nuestro menu, el cual lo estaremos trabajando con un switch y sus distintas opciones, aqui mandaremos a llamar los metodos que sean necesarios y que se explicaran mas adelante
 <br>
-<img src="./Imagenes/Inicio_padre.png" alt="drawing"/>
+<img src="./imagenes/main.png" alt="drawing"/>
 <br>
 Luego declaramos el primer fork, que es el primero que estaremos utilizando en el programa
 <br>
