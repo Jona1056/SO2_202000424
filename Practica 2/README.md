@@ -84,19 +84,16 @@ Metodo que crea un archivo .csv, el cual tiene toda la informacion de los usuari
 <br>
 <img src="./imagenes/generar_estadoscuenta.png" alt="drawing" />
 <br>
-### Metodo que controla los write:
-De igual manera que el método de read, lo único que cambia con este método es
-el syscall.read, en vez de ser read, pues utilizaríamos la palabra write, la cual
-buscaría todos los procesos write, que concuerden con el pid de los procesos hijos
+### Retiro
+Metodo que se encarga de la logica para hacer un retiro, el cual verifica si existe la cuenta y de igual manera verifica si el monto es correcto y al ser un retiro se tiene que verificar que el saldo sea mayor al debito p.
+
 <br>
-<img src="./Imagenes/systemtrap_write.png" alt="drawing" />
+<img src="./imagenes/retiro.png" alt="drawing" />
 <br>
-### Metodo que controla los seek:
-Como con los métodos anteriores, lo único que cambieremos será el nombre del
-método, que en este caso seria syscall.lseek, el cual leerá todos los seek que
-hagamos cuando concuerde los pid de los procesos hijos
+### Transferencia
+Metodo que se encarga de realizar una transferencia, en este metodo tenemos que verificar ambas cuentas que vienen, si no existen retornarmos un error y de igual manera tenemos que verificar que la cuenta a debitar tenga saldo suficiente.
 <br>
-<img src="./Imagenes/systemtrap_seek.png" alt="drawing" />
+<img src="./imagenes/transferencia.png" alt="drawing" />
 
 
 
