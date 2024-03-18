@@ -42,54 +42,47 @@ En la funcion main tendremos nuestro menu, el cual lo estaremos trabajando con u
 <br>
 <img src="./imagenes/main.png" alt="drawing"/>
 <br>
-Luego declaramos el primer fork, que es el primero que estaremos utilizando en el programa
-<br>
-<img src="./Imagenes/logica_fork.png" alt="drawing" />
 
-en esta parte del codigo, tendremos la logica para ejecutar nuestro procesos hijos, el cual si entra al primer if que iguala a -1, este es un error, luego sabemos que si el PID que viene es mayor a 0 es el proceso padre, encontes cuando entra a este else if, creamos el segundo proceso hijo y siguiendo la misma logica para el primer hijo pues verificamos si el PID2 que viene es padre o hijo y si no es mayor a 0 es el proceso hijo, entonces en el else del proceso hijo, mandamos a ejecutar el archivo hijo.bin, esto lo hacemos con execv. 
-ambos hijos llaman al mismo archivo, ya que esatermos simulando el mismo proceso
-#
-### llamada a archivo systemtrap
-para la llamada de este archivo tenemos un char de 100 caracteres, el cual utilizaremos para almacenar el comando, luego con ayuda de un snprintf, que guarda el comando, el cual seria sudo stap trace.stp, el cual va redirigir toda su salida al archivo syscall.log. Este archivo trace.stp va recibir dos parametros, el cual es el pid del hijo 1 en este caso contador1 y el pid del hijo 2 en este caso contador 2, con el system(command) mandamos a ejecutar el systemrap y luego con un waitpid esperamos a que terminen los procesos hijos.
+
+
+### Carga de Usuarios
+para la carga de usuarios, estaremos utilizando 3 hilos, los cuales se distribuyen equitativamente por el tamaño del archivo, asi de esa manera cada hilo contara con un porcentaje para leer del archivo
 <br>
-<img src="./Imagenes/llamada_systemtrap.png" alt="drawing" />
-### Método hijo que escribe en el archivo: 
-en esta parte, tenemos un metodo llamdo hijo_escribir, el cual recibe el file, que seria el open del archivo practica1.txt, se crea un char de 8 caracteres y con un for, el cual tiene un random, ingresa a escribir números o a escribir letras, luego con un write escribimos en el archivo
-Area de trabajo de Recursos y Configuracion IP
+<img src="./imagenes/carga_usuarios.png" alt="drawing" />
+### Carga Transacciones: 
+Para la carga de transacciones utilizaremos un hilo mas y en esta parte estaremos utilizando mutex, esto nos ayudara a manejar de mejora manera las transacciones que vienen, para que se lleve un mejor flujo de trabajo
 <br>
-<img src="./Imagenes/hijo_escribir.png" alt="drawing">
+<img src="./imagenes/carga_transacciones.png" alt="drawing">
 
 #
-### Metodo hijo que lee archivo:
-En este metodo tenemos un char el cual nos ayuda a leer las 8 posiciones del archivo, esto donde se encuentre el apuntador.
+### Reporte Transacciones:
+Metodo que se encarga de crear el archivo de reportes, aqui se llevara el control de todas las transacciones que se hicieron durante su ejecucion.
 <br>
-<img src="./Imagenes/hijo_leer.png" alt="drawing" />
+<img src="./imagenes/reporte_transacciones.png" alt="drawing" />
 
 #
-### Metodo seek, que redirecciona a la primera posicion:
-Con un lseek podemos redireccionar a cualquier lugar del archivo el apuntador, en este caso lo redireccionamos a la posicion 0
+### Reporte Usuarios:
+Metodo que genera el archivo de reportes de usuario, aqui se mostrara cuantos usuarios cargo cada hilo y los errores
 <br>
-<img src="./Imagenes/hijo_seek.png" alt="drawing" />
+<img src="./imagenes/reporte_usuarios.png" alt="drawing" />
 
 #
-### Metodo que captura la señal ctrl + C:
-En esta parte del codigo tendermos la logica para obtener el conteo de los procesos que se hicieron, para esto utilizamos un fopen, el cual abre el archivo syscall.logs y recorremos el archivo con un while, en el cual si encuentra la palabra read, write o seek, suma la variable dependiendo la condicion encontrada, con una serie de pasos simples, obtenemos el conteo toal y ya imprimimos en consola nuestros procesos totales.
+### Consultar Cuenta:
+Metodo que se encarga de retornar datos sobre la cuenta que se envia, verifica si la cuenta es existente dentro del sistema y si es correcto devuelve sus datos
 <br>
-<img src="./Imagenes/signint.png" alt="drawing" />
+<img src="./imagenes/consultar_cuenta.png" alt="drawing" />
 
 #
-### Funcion main del archivo hijo
-En esta funcion, creamos el archivo practica1.txt en el cual se hace los procesos de escribir, leer y redireccionar el puntero, entonces con un while hacemos que se repita el c´digo, luego con un random de 1 a 3, ponemos un sleep para que espere un tiempo aleatorio y con un switch y un random, elije que funcion manda a llamar, que en este caso seria hijo_escribir, hijo_leer e hijo_seek, esto se repitira hasta que se termine el proceso hijo.
+### Deposito
+Metodo que se manda a llamar desde el switch, se encarga de manejar la logica para hacer un deposito, verifica si existe la cuenta y si el monto es valido, luego agregar el valor a la posicion que se obtuvo
 <br>
-<img src="./Imagenes/main_hijo.png" alt="drawing" />
+<img src="./imagenes/deposito.png" alt="drawing" />
 
 #
-### Metodos en el archivo de systemtrap:
-Systemrap es una herramientas que nos ayuda a llevar el control de procesos en Linux, entonces con systemtrap podemos crear un script el cual nos ayudara a saber que procesos se hacen con el respectivo PID
-### Metodo que controla los read:
-Systemtrap nos da la opcion de controlar las llamadas que se hacen, entonces con un probe syscall.read, podemos obtener todos los read, pero para buscar los read que hacen los PID delos hijos tenemos que poner un if, en el cual igualando con los parametros que obtiene el comando, podemos encontrar el PID al cual pertenece, como un tipo de filtro.
+### Generar Estados De cuenta
+Metodo que crea un archivo .csv, el cual tiene toda la informacion de los usuarios
 <br>
-<img src="./Imagenes/systemtrap_read.png" alt="drawing" />
+<img src="./imagenes/generar_estadoscuenta.png" alt="drawing" />
 <br>
 ### Metodo que controla los write:
 De igual manera que el método de read, lo único que cambia con este método es
